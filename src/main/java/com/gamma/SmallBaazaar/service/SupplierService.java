@@ -21,4 +21,9 @@ public class SupplierService {
         List<Supplier> ref = ser.findBySnameAndPassword(sname,pass);
         return ref;
     }
+
+    public Supplier getSupplierById(int id){
+        Supplier supplier = ser.findById(id).get();
+        return supplier;
+    }
 }

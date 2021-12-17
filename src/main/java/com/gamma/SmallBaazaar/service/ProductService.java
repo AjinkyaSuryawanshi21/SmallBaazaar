@@ -15,7 +15,12 @@ public class ProductService {
 
     public List<Product> getAll(){
         List<Product> products = ref.findAll();
-        System.out.println(products.get(0).getFpname());
+//        System.out.println(products.get(0).getFpname());
         return products;
+    }
+
+    public Product getProductById(int id){
+        Product product = ref.findById(id).get();
+        return product;
     }
 }

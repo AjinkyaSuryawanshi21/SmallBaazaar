@@ -2,17 +2,21 @@ package com.gamma.SmallBaazaar.controller;
 
 import com.gamma.SmallBaazaar.model.Customer;
 import com.gamma.SmallBaazaar.model.Product;
+import com.gamma.SmallBaazaar.model.ProductSupplier;
 import com.gamma.SmallBaazaar.model.Supplier;
 import com.gamma.SmallBaazaar.repository.SBInterface;
 import com.gamma.SmallBaazaar.service.CustomerService;
 import com.gamma.SmallBaazaar.service.ProductService;
+import com.gamma.SmallBaazaar.service.ProductSupplierService;
 import com.gamma.SmallBaazaar.service.SupplierService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,6 +30,9 @@ public class SbController {
 
     @Autowired
     ProductService pServ;
+
+    @Autowired
+    ProductSupplierService psServ;
 
     /*Auther: Manoj Sakat*/
     @GetMapping("/")
@@ -80,5 +87,34 @@ public class SbController {
             return "home.html";
         }
         return "loginSupplier.html";
+    }
+
+    @GetMapping("/loginAsSupplier")
+    public String loginAsSupplier(){
+        return "loginSupplier.html";
+    }
+
+    @GetMapping("/product/details/{fpid}")
+    public String productDetails(@PathVariable("fpid") String id, Model model){
+        int i = Integer.parseInt(id);
+        List<ProductSupplier> pSuppliers = psServ.getByFpid(i);
+//        List<Product> products = new ArrayList<>();
+        List<Supplier> suppliers = new ArrayList<>();
+
+        for(ProductSupplier p: pSuppliers){
+            int sid = p.getSid();
+            Supplier supplier = ser.getSupplierById(sid);
+            suppliers.add(supplier);
+
+//            int pid = p.getFpid();
+//            Product product = pServ.getProductById(pid);
+//            products.add(product);
+        }
+
+        model.addAttribute("pSuppliers", pSuppliers);
+        model.addAttribute("suppliers", suppliers);
+//        model.addAttribute("products", products);
+
+        return "productDetails.html";
     }
 }

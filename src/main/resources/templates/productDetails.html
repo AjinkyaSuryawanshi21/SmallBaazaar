@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+</head>
+<body>
+<table>
+<!--    th:each = "pSuppliers:${pSuppliers}"-->
+<!--    <td th:text="${pSuppliers.price}"></td>-->
+    <tr th:each = "suppliers:${suppliers}">
+        <td th:text="${suppliers.sname}"></td>
+    </tr>
+</table>
+</body>
+</html>

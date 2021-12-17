@@ -13,7 +13,8 @@ This is home
 
 <ol>
     <li th:each="obj:${products}">
-        <a href="">
+<!--        href="product/details/th:text=${obj.fpid}"-->
+        <a th:href="@{/product/details/{fpid}(fpid = ${obj.fpid})}">
             <p th:text="${obj.fpname}"></p>
         </a>
     </li>
