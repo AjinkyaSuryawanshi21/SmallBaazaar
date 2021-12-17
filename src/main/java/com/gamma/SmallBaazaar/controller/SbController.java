@@ -1,8 +1,10 @@
 package com.gamma.SmallBaazaar.controller;
 
 import com.gamma.SmallBaazaar.model.Customer;
+import com.gamma.SmallBaazaar.model.Supplier;
 import com.gamma.SmallBaazaar.repository.SBInterface;
 import com.gamma.SmallBaazaar.service.CustomerService;
+import com.gamma.SmallBaazaar.service.SupplierService;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,9 @@ public class SbController {
 
     @Autowired
     CustomerService service;
+
+    @Autowired
+    SupplierService ser;
 
     /*Auther: Manoj Sakat*/
     @GetMapping("/")
@@ -36,7 +41,6 @@ public class SbController {
     Module Info:
     Auther : Akshay Hambir
     */
-
     @GetMapping("/registerUser")
     public String reg_cust(@ModelAttribute Customer customer){
         service.setCustomer(customer);
@@ -54,5 +58,19 @@ public class SbController {
             return "home.html";
         }
         return "login.html";
+    }
+
+    /*
+    Auther : Akshay Hambir
+     */
+    @GetMapping("/loginSupplier")
+    public String sup_login(@RequestParam("sname") String sname, @RequestParam("password") String password){
+        List<Supplier> ref = ser.getSupplier(sname,password);
+//        Supplier s = ref.get(0);
+//        System.out.println(s.getSname());
+        if(!ref.isEmpty()){
+            return "home.html";
+        }
+        return "loginSupplier.html";
     }
 }
