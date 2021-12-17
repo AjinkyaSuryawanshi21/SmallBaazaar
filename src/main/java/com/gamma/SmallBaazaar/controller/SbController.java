@@ -84,7 +84,7 @@ public class SbController {
 //        Supplier s = ref.get(0);
 //        System.out.println(s.getSname());
         if(!ref.isEmpty()){
-            return "home.html";
+            return "SupplierHomePage.html";
         }
         return "loginSupplier.html";
     }
