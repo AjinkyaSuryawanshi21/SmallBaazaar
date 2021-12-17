@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Supplier {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "sid")
     int sid;
 
@@ -28,12 +27,13 @@ public class Supplier {
 
     public Supplier(){}
 
-    public Supplier(String sname, int grade, int count, double final_grade, String password) {
+    public Supplier(int sid, String sname, int grade, int count, double final_grade, String password) {
         this.sname = sname;
         this.grade = grade;
         this.count = count;
         this.final_grade = final_grade;
         this.password = password;
+        this.sid = sid;
     }
 
     public int getSid() {

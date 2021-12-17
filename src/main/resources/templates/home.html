@@ -1,0 +1,28 @@
+<!--Auther : Manoj Sakat-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+This is home
+<a href="register">Register</a>
+<a href="login">Login</a>
+
+<ol>
+    <li th:each="obj:${products}">
+        <a href="">
+            <p th:text="${obj.fpname}"></p>
+        </a>
+    </li>
+</ol>
+
+<!--<table>-->
+<!--    <tr th:each = "obj:${products}">-->
+<!--        <td th:text="${obj.fpname}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+</body>
+</html>
