@@ -7,23 +7,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--    Author: Ajinkya Suryawanshi -->
+    <style>
+        .app{
+            background-color: #fafafa;
+        }
+
+        .login-form{
+            margin: 0 auto;
+            width:250px;
+            text-align: center;
+        }
+
+        a{
+            margin: 0 10px 0 10px;
+        }
+
+        a:link, a:visited{
+          background-color: white;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        a:hover, a:active{
+          background-color: lightgray;
+          color: white;
+        }
+
+        .button-submit {
+          background-color: white;
+          border: none;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        button:hover
+        {
+          background-color: lightgray
+          color: white;
+        }
+
+        .app-header{
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 1px solid lightgray;
+            object-fit: contain;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
-<h1>This is register</h1>
-<form action="/registerUser" method="get">
-    <label>Enter Customer Name : </label>
-    <input type="text" name="custname" />
-    <br><br>
-    <label>Enter city : </label>
-    <input type="text" name="custcity" />
-    <br><br>
-    <label>Enter email : </label>
-    <input type="text" name="email" />
-    <br><br>
-    <label>Enter password : </label>
-    <input type="password" name="password" />
-    <br><br>
-    <input type="submit" />
-</form>
+<div class="app">
+    <div class="app-header">
+        <h3>Small Baazaar</h3>
+    </div>
+    <div class="login-form">
+        <h3>Register As A Customer</h3>
+        <form action="/registerUser" method="get">
+            <label>Enter Customer Name : </label>
+            <input type="text" name="custname" />
+            <br><br>
+            <label>Enter city : </label>
+            <input type="text" name="custcity" />
+            <br><br>
+            <label>Enter email : </label>
+            <input type="text" name="email" />
+            <br><br>
+            <label>Enter password : </label>
+            <input type="password" name="password" />
+            <br><br>
+            <input type="submit" />
+        </form>
+    </div>
+</div>
 </body>
 </html>

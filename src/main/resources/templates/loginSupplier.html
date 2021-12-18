@@ -3,18 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Supplier</title>
+    <!--    Author: Ajinkya Suryawanshi -->
+    <style>
+        .app{
+            background-color: #fafafa;
+        }
+
+        .login-form{
+            margin: 0 auto;
+            width:250px;
+            text-align: center;
+        }
+
+        a{
+            margin: 0 10px 0 10px;
+        }
+
+        a:link, a:visited{
+          background-color: white;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        a:hover, a:active{
+          background-color: lightgray;
+          color: white;
+        }
+
+        .button-submit {
+          background-color: white;
+          border: none;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        button:hover
+        {
+          background-color: lightgray
+          color: white;
+        }
+
+        .app-header{
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 1px solid lightgray;
+            object-fit: contain;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
-    <h1>Supplier Login</h1>
+<div class="app">
+    <div class="app-header">
+        <h3>Small Baazaar</h3>
+    </div>
+    <div class="login-form">
+        <h3>Login As A Supplier</h3>
+        <form action="/loginSupplier" method="get">
+            <label>Enter name : </label>
+            <input type="text" name="sname" />
+            <br><br>
+            <label>Enter password : </label>
+            <input type="password" name="password" />
+            <br><br>
+            <input type="submit" />
+        </form>
+    </div>
+</div>
 
-    <form action="/loginSupplier" method="get">
-        <label>Enter name : </label>
-        <input type="text" name="sname" />
-        <br><br>
-        <label>Enter password : </label>
-        <input type="password" name="password" />
-        <br><br>
-        <input type="submit" />
-    </form>
+
 </body>
 </html>

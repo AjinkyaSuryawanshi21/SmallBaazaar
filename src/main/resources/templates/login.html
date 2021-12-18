@@ -5,20 +5,84 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--    Author: Ajinkya Suryawanshi -->
+    <style>
+        .app{
+            background-color: #fafafa;
+        }
+
+        .login-form{
+            margin: 0 auto;
+            width:250px;
+            text-align: center;
+        }
+
+        a{
+            margin: 0 10px 0 10px;
+        }
+
+        a:link, a:visited{
+          background-color: white;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        a:hover, a:active{
+          background-color: lightgray;
+          color: white;
+        }
+
+        .button-submit {
+          background-color: white;
+          border: none;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        button:hover
+        {
+          background-color: lightgray
+          color: white;
+        }
+
+        .app-header{
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+            padding: 10px;
+            margin: 0;
+            border-bottom: 1px solid lightgray;
+            object-fit: contain;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
-<form action="/loginUser" method="get">
-    <label>Enter email : </label>
-    <input type="text" name="email" />
-    <br><br>
-    <label>Enter password : </label>
-    <input type="password" name="password" />
-    <br><br>
-    <input type="submit" />
+    <div class="app">
+        <div class="app-header">
+            <h3>Small Baazaar</h3>
+        </div>
+        <div class="login-form">
+            <h3>Login As A Customer</h3>
+            <form action="/loginUser" method="get">
 
-    <br><br>
-
-    <a href="/loginAsSupplier">Login As Supplier</a>
-</form>
+                <input type="text" name="email" placeholder="Enter Email"/>
+                <br><br>
+                <input type="password" name="password" placeholder="Enter Password"/>
+                <br><br>
+                <button type="submit" class="button-submit">Login</button>
+                <br><br>
+                <a href="/loginAsSupplier">Login As Supplier</a>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

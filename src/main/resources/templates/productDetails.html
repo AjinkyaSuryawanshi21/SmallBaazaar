@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Details</title>
+    <style>
+        .product-details {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-<table>
-<!--    th:each = "pSuppliers:${pSuppliers}"-->
-<!--    <td th:text="${pSuppliers.price}"></td>-->
-    <tr th:each = "suppliers:${suppliers}">
-        <td th:text="${suppliers.sname}"></td>
-    </tr>
-</table>
+    <div class="product-details">
+        <table>
+            <!--    th:each = "pSuppliers:${pSuppliers}"-->
+            <!--    <td th:text="${pSuppliers.price}"></td>-->
+            <tr th:each = "suppliers:${suppliers}" >
+                <td th:text="${suppliers.sname}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr th:each = "pSuppliers:${pSuppliers}" >
+                <td th:text="${pSuppliers.price}"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

@@ -6,7 +6,7 @@ package com.gamma.SmallBaazaar.model;
 
 import javax.persistence.*;
 
-
+//Author: Ajinkya
 @Entity(name = "customer")
 public class Customer {
 

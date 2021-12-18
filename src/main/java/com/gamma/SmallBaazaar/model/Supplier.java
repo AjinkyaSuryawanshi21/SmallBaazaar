@@ -3,6 +3,7 @@ package com.gamma.SmallBaazaar.model;
 
 import javax.persistence.*;
 
+//Author: Akshay
 @Entity(name = "supplier")
 public class Supplier {
 

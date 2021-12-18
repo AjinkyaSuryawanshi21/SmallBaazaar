@@ -67,9 +67,11 @@ public class SbController {
     Auther : Ajinkya Suryawanshi
      */
     @GetMapping("/loginUser")
-    public String log_cust(@RequestParam("email") String email, @RequestParam("password") String password){
+    public String log_cust(@RequestParam("email") String email, @RequestParam("password") String password, Model model){
         List<Customer> ref = service.getCustomer(email,password);
         if(!ref.isEmpty()){
+            List<Product> products = pServ.getAll();
+            model.addAttribute("products", products);
             return "home.html";
         }
         return "login.html";
@@ -89,11 +91,13 @@ public class SbController {
         return "loginSupplier.html";
     }
 
+//  Author: Manoj Sakat
     @GetMapping("/loginAsSupplier")
     public String loginAsSupplier(){
         return "loginSupplier.html";
     }
 
+//    Author: Ajinkya and Akshay
     @GetMapping("/product/details/{fpid}")
     public String productDetails(@PathVariable("fpid") String id, Model model){
         int i = Integer.parseInt(id);
