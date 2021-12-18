@@ -5,25 +5,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+<!--    <link rel="stylesheet" href="home.css">-->
+    <style>
+        .app{
+            background-color: #fafafa;
+        }
+
+        .app-products{
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            justify-content: center;
+        }
+
+        .app-header{
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+            padding: 20px;
+            margin: 0;
+            border-bottom: 1px solid lightgray;
+            object-fit: contain;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a {
+            margin: 0 10px 0 10px;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        a:link, a:visited {
+          background-color: white;
+          color: black;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        a:hover, a:active {
+          background-color: lightgray;
+          color: white;
+        }
+    </style>
 </head>
 <body>
-This is home
-<a href="register">Register</a>
-<a href="login">Login</a>
+<div class="app">
+    <div class="app-header">
+        <h3>Small Baazaar</h3>
+        <div class="app-loginContainer">
+            <a href="register">Register</a>
+            <a href="login">Login</a>
+        </div>
+    </div>
 
-<ol>
-    <li th:each="obj:${products}">
-<!--        href="product/details/th:text=${obj.fpid}"-->
-        <a th:href="@{/product/details/{fpid}(fpid = ${obj.fpid})}">
-            <p th:text="${obj.fpname}"></p>
-        </a>
-    </li>
-</ol>
+    <div>
+        <ol class="app-products">
+            <li th:each="obj:${products}">
+                <!--        href="product/details/th:text=${obj.fpid}"-->
+                <a th:href="@{/product/details/{fpid}(fpid = ${obj.fpid})}">
+                    <p th:text="${obj.fpname}"></p>
+                </a>
+            </li>
+        </ol>
+    </div>
 
 <!--<table>-->
 <!--    <tr th:each = "obj:${products}">-->
 <!--        <td th:text="${obj.fpname}"></td>-->
 <!--    </tr>-->
 <!--</table>-->
+</div>
 </body>
 </html>
