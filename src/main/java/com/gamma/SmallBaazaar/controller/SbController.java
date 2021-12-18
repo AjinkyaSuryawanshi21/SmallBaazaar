@@ -60,7 +60,7 @@ public class SbController {
     public String reg_cust(@ModelAttribute Customer customer){
         service.setCustomer(customer);
         System.out.println("post method");
-        return "register.html";
+        return "login.html";
     }
 
     /*
